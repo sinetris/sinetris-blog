@@ -1,0 +1,8 @@
+// customize bootstrap variables here:
+
+$navbar-default-bg: #312313;
+$light-orange: #ff8c00;
+$navbar-default-color: $light-orange;
+
+@import "variables";
+@import "bootstrap";

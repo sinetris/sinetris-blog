@@ -1,2 +1,8 @@
-    <h2><%= title %></h2>
-    <h3>Page: <%= page %></h3>
+     <div class="jumbotron">
+        <h1><%= title %></h1>
+        <p>
+          <span class="glyphicon glyphicon-ok"></span>
+          Page: <%= page %>
+        </p>
+        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
+      </div>
