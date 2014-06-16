@@ -18,3 +18,7 @@ To generate the new css files you have to:
 
 1. Install Compass with `bundle install`
 2. Compile the CSS with `bundle exec compass compile`
+
+To create an Heroku app:
+
+    heroku apps:create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
