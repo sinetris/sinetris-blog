@@ -1,1 +1,1 @@
-web: mix phoenix.start
+web: elixir -pa _build/prod/consolidated -S mix phoenix.start
