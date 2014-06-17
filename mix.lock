@@ -3,6 +3,6 @@
   "ex_conf": {:package, "0.1.2"},
   "inflex": {:package, "0.2.0"},
   "jazz": {:package, "0.1.1"},
-  "phoenix": {:package, "0.2.7"},
-  "plug": {:package, "0.4.4"},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "5a92a9fedd33b843282b1368732c9e8d61d65d92", []},
+  "plug": {:package, "0.5.0"},
   "ranch": {:git, "git://github.com/extend/ranch.git", "3189ef2d47843945efc96c224963380462c33d40", [ref: "0.10.0"]}}
