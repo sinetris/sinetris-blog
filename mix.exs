@@ -23,7 +23,7 @@ defmodule SinetrisBlog.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      {:phoenix, "0.2.7"},
+      {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true}
     ]
   end
