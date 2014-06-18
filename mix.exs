@@ -4,7 +4,7 @@ defmodule SinetrisBlog.Mixfile do
   def project do
     [ app: :sinetris_blog,
       version: "0.0.1",
-      elixir: "~> 0.14.0",
+      elixir: "~> 0.14.1",
       deps: deps ]
   end
 
