@@ -2,6 +2,7 @@ defmodule SinetrisBlog.Config.Prod do
   use SinetrisBlog.Config
 
   config :router, port: System.get_env("PORT"),
+                  ssl: false,
                   # Full error reports are disabled
                   consider_all_requests_local: false
 
@@ -9,5 +10,3 @@ defmodule SinetrisBlog.Config.Prod do
 
   config :logger, level: :error
 end
-
-
