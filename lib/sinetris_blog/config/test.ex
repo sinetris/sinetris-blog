@@ -9,6 +9,6 @@ defmodule SinetrisBlog.Config.Test do
   config :plugs, code_reload: true
 
   config :logger, level: :debug
+
+  config :database, url: "ecto://postgres:postgres@localhost/sinetris_blog_test?size=1&max_overflow=0"
 end
-
-

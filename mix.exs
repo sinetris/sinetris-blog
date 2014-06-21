@@ -12,7 +12,11 @@ defmodule SinetrisBlog.Mixfile do
   def application do
     [
       mod: { SinetrisBlog, [] },
-      applications: [:phoenix]
+      applications: [
+        :phoenix,
+        :postgrex,
+        :ecto
+      ]
     ]
   end
 
@@ -24,7 +28,9 @@ defmodule SinetrisBlog.Mixfile do
   defp deps do
     [
       {:phoenix, github: "phoenixframework/phoenix"},
-      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true}
+      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:postgrex, ">= 0.0.0"},
+      {:ecto, "~> 0.2.0"}
     ]
   end
 end

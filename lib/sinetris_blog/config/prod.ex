@@ -9,4 +9,6 @@ defmodule SinetrisBlog.Config.Prod do
   config :plugs, code_reload: false
 
   config :logger, level: :error
+
+  config :database, url: System.get_env("DATABASE_URL")
 end
