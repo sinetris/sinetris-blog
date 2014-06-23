@@ -14,6 +14,7 @@ defmodule SinetrisBlog.Mixfile do
       mod: { SinetrisBlog, [] },
       applications: [
         :phoenix,
+        :bcrypt,
         :postgrex,
         :ecto
       ]
@@ -29,6 +30,7 @@ defmodule SinetrisBlog.Mixfile do
     [
       {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:bcrypt, github: "opscode/erlang-bcrypt"},
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 0.2.0"}
     ]
