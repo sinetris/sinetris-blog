@@ -1,10 +1,12 @@
 defmodule SinetrisBlog.Controllers.Pages do
   use Phoenix.Controller
-  alias Sinetris.Cookies
   alias SinetrisBlog.User
+  alias Plug.Conn
 
   def index(conn) do
-    username = Cookies.get_cookie(conn, :username)
+    username = conn
+               |> Conn.fetch_session
+               |> Conn.get_session(:username)
     if user = User.get(username) do
       text conn, "Hello #{user.email}!!"
     else
