@@ -1,12 +1,11 @@
 defmodule SinetrisBlog.Controllers.Session do
   use Phoenix.Controller
-  alias Sinetris.Renderer
   alias Sinetris.Cookies
   alias SinetrisBlog.User
   alias SinetrisBlog.Router
 
   def show(conn) do
-    Renderer.render conn, "session/show", [title: "Login", error: false]
+    render conn, "show", %{title: "Login", error: false}
   end
 
   def new(conn) do
@@ -16,7 +15,7 @@ defmodule SinetrisBlog.Controllers.Session do
       |> Cookies.set_cookie(:username, user.username)
       |> redirect Router.root_path
     else
-      Renderer.render conn, "session/show", [title: "Login", error: true]
+      render conn, "show", %{title: "Login", error: true}
     end
   end
 

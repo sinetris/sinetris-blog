@@ -1,6 +1,5 @@
 defmodule SinetrisBlog.Controllers.Pages do
   use Phoenix.Controller
-  alias Sinetris.Renderer
   alias Sinetris.Cookies
   alias SinetrisBlog.User
 
@@ -14,6 +13,6 @@ defmodule SinetrisBlog.Controllers.Pages do
   end
 
   def show(conn) do
-    Renderer.render conn, "pages/show", [title: "Sinetris", page: conn.params["page"]]
+    render conn, "show", %{title: "Sinetris", page: conn.params["page"]}
   end
 end

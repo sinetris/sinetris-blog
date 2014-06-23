@@ -1,8 +1,8 @@
      <div class="jumbotron">
-        <h1><%= title %></h1>
+        <h1><%= @title %></h1>
         <p>
           <span class="glyphicon glyphicon-ok"></span>
-          Page: <%= page %>
+          Page: <%= @page %>
         </p>
         <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
       </div>
