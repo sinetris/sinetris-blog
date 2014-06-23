@@ -5,7 +5,7 @@ defmodule SinetrisBlog.Controllers.Session do
   alias SinetrisBlog.Router
 
   def show(conn) do
-    render conn, "show", %{title: "Login", error: false}
+    render conn, :html, "show", %{title: "Login"}
   end
 
   def new(conn) do
@@ -15,7 +15,7 @@ defmodule SinetrisBlog.Controllers.Session do
       |> Cookies.set_cookie(:username, user.username)
       |> redirect Router.root_path
     else
-      render conn, "show", %{title: "Login", error: true}
+      render conn, :html, "show", %{title: "Login", error: true}
     end
   end
 

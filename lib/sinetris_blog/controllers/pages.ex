@@ -13,6 +13,6 @@ defmodule SinetrisBlog.Controllers.Pages do
   end
 
   def show(conn) do
-    render conn, "show", %{title: "Sinetris", page: conn.params["page"]}
+    render conn, :html, "show", %{title: "Sinetris", page: conn.params["page"]}
   end
 end

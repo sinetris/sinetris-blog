@@ -30,7 +30,7 @@ defmodule SinetrisBlog.Mixfile do
   defp deps do
     [
       {:plug, github: "elixir-lang/plug", override: true},
-      {:phoenix, github: "phoenixframework/phoenix"},
+      {:phoenix, github: "sinetris/phoenix", branch: "fix-views-format"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:bcrypt, github: "opscode/erlang-bcrypt"},
       {:postgrex, ">= 0.0.0"},
