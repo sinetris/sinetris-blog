@@ -6,7 +6,7 @@ defmodule SinetrisBlog.Supervisor do
   end
 
   def init([]) do
-    children = []
+    children = [worker(Repo, [])]
 
     # See http://elixir-lang.org/docs/stable/Supervisor.Behaviour.html
     # for other strategies and supported options
