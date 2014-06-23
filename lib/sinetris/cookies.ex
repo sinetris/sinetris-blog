@@ -3,19 +3,19 @@ defmodule Sinetris.Cookies do
 
   def set_cookie(conn, key, val) do
     conn = fetch_session(conn)
-    session = get_session(conn) || %{}
-    put_session(conn, Map.put(session, key, val))
+    # session = get_session(conn, key) || %{}
+    put_session(conn, key, val)
   end
 
   def get_cookie(conn, key) do
     conn = fetch_session(conn)
-    session = get_session(conn)
-    session[key]
+    session = get_session(conn, key)
+    # session[key]
   end
 
   def delete_cookie(conn, key) do
     conn = fetch_session(conn)
-    session = get_session(conn) || %{}
-    put_session(conn, Map.delete(session, key))
+    # session = get_session(conn) || %{}
+    delete_session(conn, key)
   end
 end
