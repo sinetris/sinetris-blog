@@ -6,6 +6,6 @@ defmodule SinetrisBlog.Config do
   config :plugs, code_reload: false
 
   config :logger, level: :error
+
+  config :session, secret: String.duplicate("abcdef0123456789", 8)
 end
-
-

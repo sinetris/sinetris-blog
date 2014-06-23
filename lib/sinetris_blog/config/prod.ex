@@ -11,4 +11,6 @@ defmodule SinetrisBlog.Config.Prod do
   config :logger, level: :error
 
   config :database, url: System.get_env("DATABASE_URL")
+
+  config :session, secret: System.get_env("SESSION_SECRET")
 end
