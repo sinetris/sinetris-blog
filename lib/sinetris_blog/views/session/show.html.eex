@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1><%= title %></h1>
+  <%= if error do %>
+    <p class="bg-warning">
+      Invalid credential
+    </p>
+  <% end %>
+  <form role="form" action="/login" method="post">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+</div>
