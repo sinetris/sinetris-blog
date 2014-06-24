@@ -4,7 +4,7 @@
     <p>
       <span class="glyphicon glyphicon-ok"></span>
       Hello <%= @user.username %>!
-      <a href="/logout" class="btn btn-primary btn-lg">Logout</a>
+      <a href="/logout" class="btn btn-primary btn-lg" data-method="DELETE" rel="nofollow">Logout</a>
     </p>
   <%= else %>
     <p><a href="/login" class="btn btn-primary btn-lg" role="button">Login</a></p>
