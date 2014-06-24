@@ -7,11 +7,8 @@ defmodule SinetrisBlog.Controllers.Pages do
     username = conn
                |> Conn.fetch_session
                |> Conn.get_session(:username)
-    if user = User.get(username) do
-      text conn, "Hello #{user.email}!!"
-    else
-      text conn, "Not Hello world!! :("
-    end
+    user = User.get(username)
+    render conn, :html, "index", %{title: "Sinetris Blog", user: user}
   end
 
   def show(conn) do
