@@ -4,11 +4,11 @@ defmodule SinetrisBlog.Controllers.Session do
   alias SinetrisBlog.Router
   alias Plug.Conn
 
-  def show(conn) do
-    render conn, :html, "show", %{title: "Login"}
+  def new(conn) do
+    render conn, :html, "new", %{title: "Login"}
   end
 
-  def new(conn) do
+  def create(conn) do
     user = User.get(conn.params["username"])
     if User.auth?(user, conn.params["password"]) do
       conn
@@ -16,7 +16,7 @@ defmodule SinetrisBlog.Controllers.Session do
       |> Conn.put_session(:username, user.username)
       |> redirect Router.root_path
     else
-      render conn, :html, "show", %{title: "Login", error: true}
+      render conn, :html, "new", %{title: "Login", error: true}
     end
   end
 
