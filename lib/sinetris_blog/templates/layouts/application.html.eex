@@ -55,5 +55,17 @@
 
   <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/static/js/restfulizer.js"></script>
+  <script src="/static/js/bootstrap/affix.js"></script>
+  <script src="/static/js/bootstrap/alert.js"></script>
+  <script src="/static/js/bootstrap/button.js"></script>
+  <script src="/static/js/bootstrap/carousel.js"></script>
+  <script src="/static/js/bootstrap/collapse.js"></script>
+  <script src="/static/js/bootstrap/dropdown.js"></script>
+  <script src="/static/js/bootstrap/tab.js"></script>
+  <script src="/static/js/bootstrap/transition.js"></script>
+  <script src="/static/js/bootstrap/scrollspy.js"></script>
+  <script src="/static/js/bootstrap/modal.js"></script>
+  <script src="/static/js/bootstrap/tooltip.js"></script>
+  <script src="/static/js/bootstrap/popover.js"></script>
   </body>
 </html>
