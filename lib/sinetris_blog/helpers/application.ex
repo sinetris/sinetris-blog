@@ -16,11 +16,11 @@ defmodule SinetrisBlog.Helper.Application do
     if current_user(conn) do
       conn
     else
-      Phoenix.Controller.text conn, 403, "403 Unauthotized"
+      Phoenix.Controller.text conn, :unauthorized, "403 Unauthorized"
     end
   end
 
   def not_found(conn) do
-    Phoenix.Controller.text conn, 404, "404 Not Found"
+    Phoenix.Controller.text conn, :not_found, "404 Not Found"
   end
 end
