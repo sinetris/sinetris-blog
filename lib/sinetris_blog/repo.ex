@@ -4,7 +4,6 @@ defmodule Repo do
   @doc "Adapter configuration"
   def conf(env), do: parse_url url(env)
 
-  @doc "The URL to reach the database."
   defp url(:test) do
     SinetrisBlog.Config.Test.database[:url]
   end
