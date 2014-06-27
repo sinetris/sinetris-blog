@@ -5,6 +5,7 @@ defmodule SinetrisBlog.Mixfile do
     [ app: :sinetris_blog,
       version: "0.0.1",
       elixir: "~> 0.14.1",
+      build_per_environment: true,
       deps: deps ]
   end
 
@@ -30,7 +31,7 @@ defmodule SinetrisBlog.Mixfile do
   defp deps do
     [
       {:plug, github: "elixir-lang/plug", override: true},
-      {:phoenix, github: "sinetris/phoenix", branch: "fix-views-format"},
+      {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:bcrypt, github: "opscode/erlang-bcrypt"},
       {:postgrex, ">= 0.0.0"},

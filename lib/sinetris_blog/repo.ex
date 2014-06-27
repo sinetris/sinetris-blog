@@ -1,10 +1,17 @@
 defmodule Repo do
-  use Ecto.Repo, adapter: Ecto.Adapters.Postgres
+  use Ecto.Repo, adapter: Ecto.Adapters.Postgres, env: Mix.env
 
-  def conf do
-    parse_url SinetrisBlog.Config.env.database[:url]
+  @doc "Adapter configuration"
+  def conf(env), do: parse_url url(env)
+
+  @doc "The URL to reach the database."
+  defp url(:test) do
+    SinetrisBlog.Config.Test.database[:url]
   end
-  
+  defp url(_) do
+    SinetrisBlog.Config.env.database[:url]
+  end
+
   def priv do
     app_dir(:sinetris_blog, "priv/repo")
   end
