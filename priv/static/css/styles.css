@@ -5382,8 +5382,8 @@ tbody.collapse.in {
 
 /* line 393, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default {
-  background-color: #312313;
-  border-color: #19120a;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
 }
 /* line 397, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-brand {
@@ -5396,7 +5396,7 @@ tbody.collapse.in {
 }
 /* line 406, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-text {
-  color: darkorange;
+  color: #777777;
 }
 /* line 411, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-nav > li > a {
@@ -5410,7 +5410,7 @@ tbody.collapse.in {
 /* line 423, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #555555;
-  background-color: #19120a;
+  background-color: #e7e7e7;
 }
 /* line 431, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-nav > .disabled > a, .navbar-default .navbar-nav > .disabled > a:hover, .navbar-default .navbar-nav > .disabled > a:focus {
@@ -5432,11 +5432,11 @@ tbody.collapse.in {
 /* line 450, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-  border-color: #19120a;
+  border-color: #e7e7e7;
 }
 /* line 460, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #19120a;
+  background-color: #e7e7e7;
   color: #555555;
 }
 @media (max-width: 767px) {
@@ -5452,7 +5452,7 @@ tbody.collapse.in {
   /* line 480, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555555;
-    background-color: #19120a;
+    background-color: #e7e7e7;
   }
   /* line 488, ../../../../../../../.rvm/gems/ruby-2.0.0-p353/gems/bootstrap-sass-3.1.1.1/vendor/assets/stylesheets/bootstrap/_navbar.scss */
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
@@ -7890,4 +7890,51 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+/* line 12, ../../../sass/styles.scss */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 16, ../../../sass/styles.scss */
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+/* line 20, ../../../sass/styles.scss */
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+/* line 34, ../../../sass/styles.scss */
+body > .container {
+  padding: 60px 15px 0;
+}
+
+/* line 37, ../../../sass/styles.scss */
+.container .text-muted {
+  margin: 20px 0;
+}
+
+/* line 41, ../../../sass/styles.scss */
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* line 46, ../../../sass/styles.scss */
+code {
+  font-size: 80%;
 }
