@@ -1,0 +1,23 @@
+<div>
+  <h1>New Page</h1>
+  <%= if @errors do %>
+    <ul class="bg-warning">
+      <%= Enum.map(@errors, &format_error/1) %>
+    </ul>
+  <% end %>
+  <form role="form" action="<%= SinetrisBlog.Router.admin_pages_path %>" method="post">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%= @page.title %>">
+    </div>
+    <div class="form-group">
+      <label for="slug">Slug</label>
+      <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="<%= @page.slug %>">
+    </div>
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea class="form-control" rows="10" id="body" name="body"><%= @page.body %></textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Create</button>
+  </form>
+</div>

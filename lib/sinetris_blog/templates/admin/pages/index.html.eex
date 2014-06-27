@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>slug</th>
+      <th>Author</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for page <- @pages do %>
+      <tr>
+        <td><%= page.id %></td>
+        <td><%= page.title %></td>
+        <td><a href="<%= SinetrisBlog.Router.admin_page_path(id: page.slug) %>"><%= page.slug %></a></td>
+        <td><%= page.author.get.username %></td>
+        <td><a href="<%= SinetrisBlog.Router.edit_admin_page_path(id: page.slug) %>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="<%= SinetrisBlog.Router.admin_page_path(id: page.slug) %>" data-method="DELETE" rel="nofollow"><span class="glyphicon glyphicon-remove"></span></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="<%= SinetrisBlog.Router.new_admin_page_path %>" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-plus"></span></a>

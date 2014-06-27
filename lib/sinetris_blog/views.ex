@@ -11,6 +11,8 @@ defmodule SinetrisBlog.Views do
   end
 
   # Functions defined here are available to all other views/templates
+
+  def format_error({k, v}) do
+    {:safe, "<li>#{k} #{v}</li>"}
+  end
 end
-
-

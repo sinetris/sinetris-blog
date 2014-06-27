@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1><%= @page.title %></h1>
+  <p>
+    <h4>Body</h4>
+    <pre>
+      <%= @page.body %>
+    </pre>
+  </p>
+  <p>
+    <a href="<%= SinetrisBlog.Router.edit_admin_page_path(id: @page.slug) %>">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+  </p>
+</div>
