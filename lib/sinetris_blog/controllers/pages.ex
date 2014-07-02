@@ -3,12 +3,12 @@ defmodule SinetrisBlog.Controllers.Pages do
   use SinetrisBlog.Helper.Application
   alias SinetrisBlog.Page
 
-  def index(conn) do
+  def index(conn, _params) do
     render conn, "index", %{conn: conn, title: "Sinetris Blog"}
   end
 
-  def show(conn) do
-    page = Page.get(conn.params["slug"])
+  def show(conn, params) do
+    page = Page.get(params["slug"])
     if page do
       render conn, "show", %{conn: conn, page: page}
     else

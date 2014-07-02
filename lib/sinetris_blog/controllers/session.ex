@@ -4,13 +4,13 @@ defmodule SinetrisBlog.Controllers.Session do
   alias SinetrisBlog.Router
   alias Plug.Conn
 
-  def new(conn) do
+  def new(conn, _params) do
     render conn, "new", %{conn: conn, title: "Login"}
   end
 
-  def create(conn) do
-    user = User.get(conn.params["username"])
-    if User.auth?(user, conn.params["password"]) do
+  def create(conn, params) do
+    user = User.get(params["username"])
+    if User.auth?(user, params["password"]) do
       conn
       |> Conn.fetch_session
       |> Conn.put_session(:username, user.username)
@@ -20,7 +20,7 @@ defmodule SinetrisBlog.Controllers.Session do
     end
   end
 
-  def destroy(conn) do
+  def destroy(conn, _params) do
     conn
     |> Conn.fetch_session
     |> Conn.delete_session(:username)
