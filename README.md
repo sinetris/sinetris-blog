@@ -50,8 +50,9 @@ To generate the new css files you have to:
 
 1. Create or configure an [Heroku](https://devcenter.heroku.com/articles/quickstart) app.
 2. Set the `SESSION_SECRET`.
-3. Execute database migrations.
-4. Create a user.
+3. push the app to Heroku
+4. Execute database migrations.
+5. Create a user.
 
 To create a new Heroku app, use:
 ```
@@ -68,6 +69,11 @@ Set the `SESSION_SECRET`:
 heroku config:set SESSION_SECRET="must be at least 64 characters long"
 ```
 
+Push to Heroku:
+```
+git push heroku master
+```
+
 Migrate:
 ```
 heroku run mix ecto.migrate Repo
@@ -82,7 +88,6 @@ Running `bash` attached to terminal...
 iex(1)> SinetrisBlog.User.create("my-username", "my-email@example.com", "my-password")
 
 ```
-
 
 ## Contributing
 
