@@ -6,8 +6,8 @@
   "ex_conf": {:package, "0.1.3"},
   "inflex": {:package, "0.2.4"},
   "jazz": {:package, "0.1.2"},
-  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "d73ce683ea7f15406eff7ca94eb33c69e8c6d2f8", []},
-  "plug": {:git, "git://github.com/elixir-lang/plug.git", "dfc5291563aaa470ebfb5ab6d33f42b9b6ef502c", []},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "2f9b6b29144f349cdf78492c759760e5091c0f9d", []},
+  "plug": {:git, "git://github.com/elixir-lang/plug.git", "3b82655834ea7cc24ffb19c7338162676a3405d8", []},
   "poolboy": {:package, "1.2.1"},
   "postgrex": {:package, "0.5.2"},
   "ranch": {:git, "git://github.com/extend/ranch.git", "3189ef2d47843945efc96c224963380462c33d40", [ref: "0.10.0"]}}
