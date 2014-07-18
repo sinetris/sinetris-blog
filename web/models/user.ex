@@ -22,10 +22,11 @@ defmodule SinetrisBlog.User do
   validatep validate_password(user),
     password: present()
 
-  def create(username, email, password) do
-    username = if is_binary(username), do: String.downcase(username), else: username
-    email    = if is_binary(email),    do: String.downcase(email),    else: email
-    now      = Ecto.DateTime.from_erl(:calendar.universal_time)
+  def create(params) do
+    username = if is_binary(params[:username]), do: String.downcase(params[:username]), else: params[:username]
+    email    = if is_binary(params[:email]),    do: String.downcase(params[:email]),    else: params[:email]
+    password = params[:password]
+    now      = Ecto.DateTime.utc
     user     = %SinetrisBlog.User{username: username, email: email, password: password,
                                   created_at: now, updated_at: now}
     case validate_create(user) do
@@ -37,20 +38,22 @@ defmodule SinetrisBlog.User do
     end
   end
 
-  def update(user, email, password) do
+  def update(user, params) do
     errors = []
+    email    = if is_binary(params[:email]), do: String.downcase(params[:email]), else: params[:email]
+    password = params[:password]
     if email do
       user = %{user | email: String.downcase(email)}
       errors = errors ++ validate_email(user)
     end
-    if password do
+    if password && String.length(password) > 0 do
       user = %{user | password: password}
       errors = errors ++ validate_password(user)
       user = %{user | password: gen_password(password)}
     end
     case errors do
       [] ->
-        user = %{user | updated_at: Ecto.DateTime.from_erl(:calendar.universal_time)}
+        user = %{user | updated_at: Ecto.DateTime.utc}
         Repo.update(user)
         { :ok, user }
       errors ->

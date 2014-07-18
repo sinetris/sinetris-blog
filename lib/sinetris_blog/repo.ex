@@ -2,13 +2,10 @@ defmodule Repo do
   use Ecto.Repo, adapter: Ecto.Adapters.Postgres, env: Mix.env
 
   @doc "Adapter configuration"
-  def conf(env), do: parse_url url(env)
+  def conf(env), do: parse_url url
 
-  defp url(:test) do
-    SinetrisBlog.Config.Test.database[:url]
-  end
-  defp url(_) do
-    SinetrisBlog.Config.env.database[:url]
+  defp url do
+    Phoenix.Config.get([:database, :url])
   end
 
   def priv do

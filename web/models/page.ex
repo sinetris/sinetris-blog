@@ -12,6 +12,7 @@ defmodule SinetrisBlog.Page do
   end
 
   validate validate_all(page),
+    author: present(),
     also: validate_title,
     also: validate_body,
     also: validate_slug
@@ -27,10 +28,16 @@ defmodule SinetrisBlog.Page do
   validatep validate_body(page),
     body: present()
 
-  def create(author, slug, title, body) do
-    slug     = if is_binary(slug), do: String.downcase(slug), else: slug
-    now      = Ecto.DateTime.from_erl(:calendar.universal_time)
-    page     = struct(author.pages, slug: sanitize_slug(slug), title: title,
+  def build(author, params) do
+
+  end
+  def create(author, params) do
+    slug     = params[:slug]
+    title    = params[:title]
+    body     = params[:body]
+    slug     = sanitize_slug(slug)
+    now      = Ecto.DateTime.utc
+    page     = struct(author.pages, slug: slug, title: title,
                       body: body, created_at: now, updated_at: now)
     case validate_all(page) do
       [] ->
@@ -40,13 +47,16 @@ defmodule SinetrisBlog.Page do
     end
   end
 
-  def update(page, slug, title, body) do
+  def update(page, params) do
     errors = []
+    slug = params[:slug] || page.slug
+    title = params[:title] || page.title
+    body = params[:body] || page.body
     page = %{page | slug: sanitize_slug(slug), title: title, body: body}
     errors = errors ++ validate_all(page)
     case errors do
       [] ->
-        page = %{page | updated_at: Ecto.DateTime.from_erl(:calendar.universal_time)}
+        page = %{page | updated_at: Ecto.DateTime.utc}
         Repo.update(page)
         { :ok, page }
       errors ->
@@ -67,8 +77,8 @@ defmodule SinetrisBlog.Page do
     from(u in SinetrisBlog.Page, preload: [:author])
     |> Repo.all
   end
-  
+
   defp sanitize_slug(slug) do
-    String.downcase(slug)
+    if is_binary(slug), do: String.downcase(slug), else: slug
   end
 end

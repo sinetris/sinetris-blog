@@ -1,4 +1,4 @@
-defmodule SinetrisBlog.Controllers.Admin.Pages do
+defmodule SinetrisBlog.Admin.PagesController do
   use Phoenix.Controller
   use SinetrisBlog.Helper.Application
   alias SinetrisBlog.Router
@@ -26,15 +26,15 @@ defmodule SinetrisBlog.Controllers.Admin.Pages do
     render conn, "new", %{conn: conn, page: page}
   end
 
-  def create(conn, _params) do
+  def create(conn, params) do
+    sanitized_params = sanitize_params(Page, params)
     authorize(conn)
-    result = current_user(conn) |> Page.create(conn.params["slug"], conn.params["title"], conn.params["body"])
+    result = current_user(conn) |> Page.create(sanitized_params)
     case result do
       { :ok, page } ->
-        redirect conn, Router.admin_page_path(slug: page.slug)
+        redirect conn, Router.admin_page_path(id: page.slug)
       { :error, errors } ->
-        page = %Page{title: conn.params["title"], slug: conn.params["slug"], body: conn.params["body"]}
-        render conn, "new", %{conn: conn, page: page, errors: errors}
+        render conn, "new", %{conn: conn, page: sanitized_params, errors: errors}
     end
   end
 
@@ -48,13 +48,14 @@ defmodule SinetrisBlog.Controllers.Admin.Pages do
     end
   end
 
-  def update(conn, _params) do
+  def update(conn, params) do
     authorize(conn)
     page = Page.get(conn.params["id"])
-    result = Page.update(page, conn.params["slug"], conn.params["title"], conn.params["body"])
+    sanitized_params = sanitize_params(Page, params)
+    result = Page.update(page, sanitized_params)
     case result do
       { :ok, page } ->
-        redirect conn, Router.admin_page_path(slug: page.slug)
+        redirect conn, Router.admin_page_path(id: page.slug)
       { :error, errors } ->
         render conn, "edit", %{conn: conn, page: page, errors: errors}
     end
@@ -68,4 +69,15 @@ defmodule SinetrisBlog.Controllers.Admin.Pages do
       not_found conn
     end
   end
+
+  def sanitize_params(model, params) do
+    # __MODULE__.__schema__(:associations)
+    valid_fields = List.delete(model.__schema__(:field_names), model.__schema__(:primary_key))
+    |> Enum.traverse(&to_string/1)
+    params
+    |> Enum.filter(fn {k, _v} -> Enum.find(valid_fields, &(&1 == k)) end)
+    |> Enum.traverse(fn {k, v} -> {String.to_atom(k), v} end)
+    |> Enum.into(%{})
+  end
+
 end

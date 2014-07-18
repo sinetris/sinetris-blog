@@ -1,4 +1,4 @@
-defmodule SinetrisBlog.Controllers.Pages do
+defmodule SinetrisBlog.PagesController do
   use Phoenix.Controller
   use SinetrisBlog.Helper.Application
   alias SinetrisBlog.Page
