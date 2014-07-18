@@ -10,7 +10,7 @@
   "jazz": {:package, "0.1.2"},
   "jsex": {:package, "2.0.0"},
   "jsx": {:package, "2.0.4"},
-  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "022b7e1eccdf904829ec278d8a1c76bb12f64e65", []},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "49e37536788aacc867e841b14480215152563ca0", []},
   "plug": {:git, "git://github.com/elixir-lang/plug.git", "0cc1bd62ffa7d2d2daf57d36210ae5eaba1420e7", []},
   "poolboy": {:package, "1.2.1"},
   "postgrex": {:package, "0.5.3"},

@@ -3,6 +3,7 @@ use Mix.Config
 config :phoenix, SinetrisBlog.Router,
   port: System.get_env("PORT"),
   host: System.get_env("HOST"),
+  proxy_port: System.get_env("PROXY_PORT") || 80,
   ssl: false,
   code_reload: false,
   cookies: true,
