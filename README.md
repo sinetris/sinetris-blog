@@ -102,7 +102,7 @@ Create a user:
 Running `bash` attached to terminal...
 ~ $ iex -S mix
 ...
-iex(1)> SinetrisBlog.User.create("my-username", "my-email@example.com", "my-password")
+iex(1)> SinetrisBlog.User.create(%{username: "my-username", email: "my-email@example.com", password: "my-password"})
 
 ```
 
