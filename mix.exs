@@ -28,6 +28,13 @@ defmodule SinetrisBlog.Mixfile do
     ]
   end
 
+  defp applications(:test) do
+    applications ++ [
+      :hound,
+      :factory_girl_elixir
+    ]
+  end
+
   defp applications(_), do: applications
 
 
@@ -44,6 +51,15 @@ defmodule SinetrisBlog.Mixfile do
       {:bcrypt, github: "opscode/erlang-bcrypt"},
       {:postgrex, "~> 0.5.3"},
       {:ecto, github: "elixir-lang/ecto"}
+    ]
+  end
+
+  defp deps(:test) do
+    deps ++ [
+      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.0.2", optional: true},
+      {:hound, github: "HashNuke/hound"},
+      {:jsex,    "~> 2.0.0"},
+      {:factory_girl_elixir, github: "sinetris/factory_girl_elixir"}
     ]
   end
 

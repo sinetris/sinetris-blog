@@ -46,6 +46,23 @@ To generate the new css files you have to:
 1. Install Compass with `bundle install`
 2. Compile the CSS with `bundle exec compass compile`
 
+## Tests
+
+You need to [download Selenium](http://docs.seleniumhq.org/download/) and start it:
+
+```
+java -jar selenium-server-standalone-2.42.2.jar
+```
+
+Fetch the test dependencies using:
+```
+MIX_ENV=test mix do deps.get
+```
+and then exec the tests:
+```
+mix test
+```
+
 ## Deploy on Heroku
 
 1. Create or configure an [Heroku](https://devcenter.heroku.com/articles/quickstart) app.
