@@ -4,7 +4,7 @@ defmodule SinetrisBlog.SessionController do
   alias Plug.Conn
 
   def new(conn, _params) do
-    render conn, "new", %{conn: conn, title: "Login"}
+    render conn, "new", %{title: "Login"}
   end
 
   def create(conn, params) do
@@ -18,7 +18,7 @@ defmodule SinetrisBlog.SessionController do
     else
       conn = Flash.put(conn, :warning, "Invalid credentials")
       messages = Flash.get(conn)
-      render conn, "new", %{conn: conn, title: "Login", flash_messages: messages}
+      render conn, "new", %{title: "Login", flash_messages: messages}
     end
   end
 

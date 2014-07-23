@@ -9,7 +9,7 @@ defmodule SinetrisBlog.PagesController do
   def show(conn, params) do
     page = Page.get(params["slug"])
     if page do
-      render conn, "show", %{conn: conn, page: page}
+      render conn, "show", %{page: page}
     else
       not_found conn
     end
