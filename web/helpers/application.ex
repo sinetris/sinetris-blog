@@ -5,6 +5,7 @@ defmodule SinetrisBlog.Helper.Application do
       alias SinetrisBlog.Router
 
       plug :set_current_user
+      plug :set_flash_messages
 
       import unquote(__MODULE__)
 
@@ -24,6 +25,11 @@ defmodule SinetrisBlog.Helper.Application do
         |> Plug.Conn.get_session(:username)
         |> SinetrisBlog.User.get
         assign(conn, :current_user, user)
+      end
+
+      def set_flash_messages(conn, _options) do
+        messages = Phoenix.Controller.Flash.get(conn)
+        assign(conn, :flash_messages, messages)
       end
 
       def not_found(conn) do

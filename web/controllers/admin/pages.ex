@@ -28,7 +28,9 @@ defmodule SinetrisBlog.Admin.PagesController do
     result = conn.assigns[:current_user] |> Page.create(sanitized_params)
     case result do
       { :ok, page } ->
-        redirect conn, Router.admin_page_path(id: page.slug)
+        conn
+        |> Flash.put(:notice, "Created #{page.title} page")
+        |> redirect Router.admin_page_path(id: page.slug)
       { :error, errors } ->
         render conn, "new", %{conn: conn, page: sanitized_params, errors: errors}
     end
@@ -49,7 +51,9 @@ defmodule SinetrisBlog.Admin.PagesController do
     result = Page.update(page, sanitized_params)
     case result do
       { :ok, page } ->
-        redirect conn, Router.admin_page_path(id: page.slug)
+        conn
+        |> Flash.put(:notice, "Updated #{page.title} page")
+        |> redirect Router.admin_page_path(id: page.slug)
       { :error, errors } ->
         render conn, "edit", %{conn: conn, page: page, errors: errors}
     end
@@ -58,7 +62,9 @@ defmodule SinetrisBlog.Admin.PagesController do
   def destroy(conn, _params) do
     if page = Page.get(conn.params["id"]) do
       Repo.delete(page)
-      redirect conn, Router.admin_pages_path
+      conn
+      |> Flash.put(:notice, "Deleted #{page.title} page")
+      |> redirect Router.admin_pages_path
     else
       not_found conn
     end

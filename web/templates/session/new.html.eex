@@ -1,10 +1,5 @@
 <div class="jumbotron">
   <h1><%= @title %></h1>
-  <%= if @error do %>
-    <p class="bg-warning">
-      Invalid credential
-    </p>
-  <% end %>
   <form role="form" action="/login" method="post">
     <div class="form-group">
       <label for="username">Username</label>
