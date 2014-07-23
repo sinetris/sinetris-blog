@@ -45,7 +45,7 @@ defmodule SinetrisBlog.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      {:plug, "0.5.2-dev", github: "elixir-lang/plug", override: true},
+      {:plug, "~> 0.5.2", github: "elixir-lang/plug", override: true},
       {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:bcrypt, github: "opscode/erlang-bcrypt"},

@@ -1,7 +1,6 @@
 defmodule SinetrisBlog.SessionController do
-  use Phoenix.Controller
+  use SinetrisBlog.Helper.Application
   alias SinetrisBlog.User
-  alias SinetrisBlog.Router
   alias Plug.Conn
 
   def new(conn, _params) do
@@ -14,7 +13,6 @@ defmodule SinetrisBlog.SessionController do
       conn
       |> Conn.fetch_session
       |> Conn.put_session(:username, user.username)
-      # |> assign(:current_user, user)
       |> redirect Router.root_path
     else
       render conn, "new", %{conn: conn, title: "Login", error: true}

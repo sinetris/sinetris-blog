@@ -1,10 +1,9 @@
-<% current_user = SinetrisBlog.Helper.Application.current_user(@conn) %>
 <div class="jumbotron">
   <h1><%= @title %></h1>
-  <%= if current_user do %>
+  <%= if @current_user do %>
     <p>
       <span class="glyphicon glyphicon-ok"></span>
-      Hello <%= current_user.username %>!
+      Hello <%= @current_user.username %>!
       <a href="/logout" class="btn btn-primary btn-lg" data-method="DELETE" rel="nofollow">Logout</a>
     </p>
   <%= else %>

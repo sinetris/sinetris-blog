@@ -10,8 +10,9 @@
   "jazz": {:package, "0.1.2"},
   "jsex": {:package, "2.0.0"},
   "jsx": {:package, "2.0.4"},
-  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "49e37536788aacc867e841b14480215152563ca0", []},
-  "plug": {:git, "git://github.com/elixir-lang/plug.git", "0cc1bd62ffa7d2d2daf57d36210ae5eaba1420e7", []},
+  "linguist": {:package, "0.1.0"},
+  "phoenix": {:git, "git://github.com/phoenixframework/phoenix.git", "2bebe5687df0a2cd143e03600e71db27b0c3c35d", []},
+  "plug": {:git, "git://github.com/elixir-lang/plug.git", "40d0a16e469c9b17c4fb48a225f711f75fb9354c", []},
   "poolboy": {:package, "1.2.1"},
   "postgrex": {:package, "0.5.3"},
   "ranch": {:git, "git://github.com/extend/ranch.git", "3189ef2d47843945efc96c224963380462c33d40", [ref: "0.10.0"]}}
