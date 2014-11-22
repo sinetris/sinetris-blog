@@ -1,4 +1,4 @@
 defmodule SinetrisBlog.LayoutView do
-  use SinetrisBlog.Views
+  use SinetrisBlog.View
 
 end

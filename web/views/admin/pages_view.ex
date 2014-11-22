@@ -1,4 +1,4 @@
 defmodule SinetrisBlog.Admin.PagesView do
-  use SinetrisBlog.Views
+  use SinetrisBlog.View
 
 end

@@ -1,17 +1,23 @@
-defmodule SinetrisBlog.Views do
+defmodule SinetrisBlog.View do
+  use Phoenix.View, root: "web/templates"
 
-  defmacro __using__(_options) do
+  # The quoted expression returned by this block is applied
+  # to this module and all other views that use this module.
+  using do
     quote do
-      use Phoenix.View, templates_root: unquote(Path.join([__DIR__, "templates"]))
-      import unquote(__MODULE__)
+      # Import common functionality
+      import SinetrisBlog.I18n
+      import SinetrisBlog.Router.Helpers
 
-      # This block is expanded within all views for aliases, imports, etc
-      alias SinetrisBlog.Views
+      # Use Phoenix.HTML to import all HTML functions (forms, tags, etc)
+      use Phoenix.HTML
+
+      # Common aliases
+      alias Phoenix.Controller.Flash
     end
   end
 
   # Functions defined here are available to all other views/templates
-
   def format_error({k, v}) do
     {:safe, "<li>#{k} #{v}</li>"}
   end

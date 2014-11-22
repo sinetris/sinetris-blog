@@ -1,4 +1,4 @@
 defmodule SinetrisBlog.SessionView do
-  use SinetrisBlog.Views
+  use SinetrisBlog.View
 
 end
