@@ -3,6 +3,7 @@ defmodule SinetrisBlog.Helper.Application do
     quote do
       use Phoenix.Controller
       alias SinetrisBlog.Router
+      alias Phoenix.Controller.Flash
 
       plug :set_current_user
       plug :set_flash_messages
@@ -15,7 +16,7 @@ defmodule SinetrisBlog.Helper.Application do
         else
           conn
           |> text(:unauthorized, "403 Unauthorized")
-          |> halt!
+          |> halt
         end
       end
 
@@ -28,7 +29,7 @@ defmodule SinetrisBlog.Helper.Application do
       end
 
       def set_flash_messages(conn, _options) do
-        messages = Phoenix.Controller.Flash.get(conn)
+        messages = Flash.get(conn)
         assign(conn, :flash_messages, messages)
       end
 
