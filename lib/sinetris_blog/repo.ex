@@ -5,7 +5,7 @@ defmodule Repo do
   def conf(env), do: parse_url url
 
   defp url do
-    Phoenix.Config.get([:database, :url])
+    Application.get_env(:phoenix, :database)[:url]
   end
 
   def priv do
