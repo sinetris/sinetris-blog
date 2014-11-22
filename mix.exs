@@ -4,13 +4,15 @@ defmodule SinetrisBlog.Mixfile do
   def project do
     [ app: :sinetris_blog,
       version: "0.0.1",
-      elixir: "~> 0.14.3",
+      elixir: "~> 1.0",
       elixirc_paths: ["lib", "web"],
-      build_per_environment: true,
+      compilers: [:phoenix] ++ Mix.compilers,
       deps: deps(Mix.env) ]
   end
 
   # Configuration for the OTP application
+  #
+  # Type `mix help compile.app` for more information
   def application do
     [
       mod: { SinetrisBlog, [] },
@@ -21,6 +23,8 @@ defmodule SinetrisBlog.Mixfile do
   defp applications do
     [
       :phoenix,
+      :cowboy,
+      :logger,
       :plug,
       :bcrypt,
       :postgrex,
@@ -38,27 +42,24 @@ defmodule SinetrisBlog.Mixfile do
   defp applications(_), do: applications
 
 
-  # Returns the list of dependencies in the format:
-  # { :foobar, git: "https://github.com/elixir-lang/foobar.git", tag: "0.1" }
+  # Specifies your project dependencies
   #
-  # To specify particular versions, regardless of the tag, do:
-  # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
+  # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:plug, "~> 0.5.2", github: "elixir-lang/plug", override: true},
-      {:phoenix, github: "phoenixframework/phoenix"},
-      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:phoenix, "~> 0.6.0"},
+      {:cowboy, "~> 1.0"},
       {:bcrypt, github: "opscode/erlang-bcrypt"},
-      {:postgrex, "~> 0.5.3"},
-      {:ecto, github: "elixir-lang/ecto"}
+      {:postgrex, "~> 0.5"},
+      {:ecto, "~> 0.2.0"}
     ]
   end
 
   defp deps(:test) do
     deps ++ [
-      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.0.2", optional: true},
-      {:hound, github: "HashNuke/hound"},
-      {:jsex,    "~> 2.0.0"},
+      {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.1", optional: true},
+      {:hound, "~> 0.5.8"},
+      {:jsex,    "~> 2.0"},
       {:factory_girl_elixir, github: "sinetris/factory_girl_elixir"}
     ]
   end
