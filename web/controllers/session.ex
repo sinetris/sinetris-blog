@@ -3,8 +3,10 @@ defmodule SinetrisBlog.SessionController do
   alias SinetrisBlog.User
   alias Plug.Conn
 
+  plug :action
+
   def new(conn, _params) do
-    render conn, "new", %{title: "Login"}
+    render conn, "new.html"#, %{title: "Login"}
   end
 
   def create(conn, params) do
@@ -14,11 +16,11 @@ defmodule SinetrisBlog.SessionController do
       |> Conn.fetch_session
       |> Conn.put_session(:username, user.username)
       |> Flash.put(:notice, "Logged in as #{user.username}")
-      |> redirect Router.root_path
+      |> redirect "/"
     else
       conn = Flash.put(conn, :warning, "Invalid credentials")
       messages = Flash.get(conn)
-      render conn, "new", %{title: "Login", flash_messages: messages}
+      render conn, "new.html", %{title: "Login", flash_messages: messages}
     end
   end
 
@@ -27,6 +29,6 @@ defmodule SinetrisBlog.SessionController do
     |> Conn.fetch_session
     |> Conn.delete_session(:username)
     |> Flash.put(:notice, "Logged out")
-    |> redirect Router.root_path
+    |> redirect "/"
   end
 end

@@ -2,17 +2,18 @@ defmodule SinetrisBlog.Admin.PagesController do
   use SinetrisBlog.Helper.Application
   alias SinetrisBlog.Page
 
+  plug :action
   plug :authorize
 
   def index(conn, _params) do
     pages = Page.all
-    render conn, "index", %{title: "Sinetris Blog Pages", pages: pages}
+    render conn, "index.html", %{title: "Sinetris Blog Pages", pages: pages}
   end
 
   def show(conn, _params) do
     page = Page.get(conn.params["id"])
     if page do
-      render conn, "show", %{page: page}
+      render conn, "show.html", %{page: page}
     else
       not_found conn
     end
@@ -20,7 +21,7 @@ defmodule SinetrisBlog.Admin.PagesController do
 
   def new(conn, _params) do
     page = %Page{}
-    render conn, "new", %{page: page}
+    render conn, "new.html", %{page: page}
   end
 
   def create(conn, params) do
@@ -32,14 +33,14 @@ defmodule SinetrisBlog.Admin.PagesController do
         |> Flash.put(:notice, "Created #{page.title} page")
         |> redirect Router.admin_page_path(id: page.slug)
       { :error, errors } ->
-        render conn, "new", %{page: sanitized_params, errors: errors}
+        render conn, "new.html", %{page: sanitized_params, errors: errors}
     end
   end
 
   def edit(conn, _params) do
     page = Page.get(conn.params["id"])
     if page do
-      render conn, "edit", %{page: page}
+      render conn, "edit.html", %{page: page}
     else
       not_found conn
     end
@@ -53,9 +54,9 @@ defmodule SinetrisBlog.Admin.PagesController do
       { :ok, page } ->
         conn
         |> Flash.put(:notice, "Updated #{page.title} page")
-        |> redirect Router.admin_page_path(id: page.slug)
+        |> redirect Router.Helpers.admin_page_path(:show, page.slug)
       { :error, errors } ->
-        render conn, "edit", %{page: page, errors: errors}
+        render conn, "edit.html", %{page: page, errors: errors}
     end
   end
 
