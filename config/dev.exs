@@ -1,17 +1,11 @@
 use Mix.Config
 
 config :phoenix, SinetrisBlog.Router,
-  port: System.get_env("PORT") || 4000,
-  host: "localhost",
-  ssl: false,
-  code_reload: true,
-  cookies: true,
-  consider_all_requests_local: true,
-  session_key: "_sinetris_blog_key",
-  session_secret: "ZOZY)Q6PIV20G@+*!1H=HF2O9M*HKJGIQ%NEN3=YROU$BCLV0HLQD@UWTNKGUG&*M7(SX@MSD+"
+  http: [port: System.get_env("PORT") || 4000],
+  debug_errors: true
 
-config :phoenix, :logger,
-  level: :debug
+# Enables code reloading for development
+config :phoenix, :code_reloader, true
 
 config :phoenix, :database,
   url: "ecto://postgres:postgres@localhost/sinetris_blog_dev"
