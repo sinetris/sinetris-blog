@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export GEM_HOME="$build_path/gems"
+export GEM_PATH=$GEM_HOME
+mkdir -p $GEM_HOME || exit 1
+LANG="en_US.UTF-8" gem install --no-rdoc --no-ri bundler || exit 1
+export PATH="$PATH:$GEM_PATH/bin"
+cd $build_path
+bundle install || exit 1
+bundle exec compass compile || exit 1
