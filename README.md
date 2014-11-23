@@ -37,14 +37,15 @@ Now you can visit [http://localhost:4000](http://localhost:4000) from your brows
 
 ## Notes
 
-Do not edit the files in `priv/static/css` or your changes will be lost.
+Do not edit the files in `priv/static/css/styles.css` or your changes will be lost.
 
 You should instead modify the files in `sass/`
 
-To generate the new css files you have to:
+To generate the css files you have to:
 
-1. Install Compass with `bundle install`
-2. Compile the CSS with `bundle exec compass compile`
+1. Install `bundler` with `gem install bundler`
+2. Install Compass with `bundle install`
+3. Compile the CSS with `bundle exec compass compile`
 
 ## Tests
 
@@ -73,12 +74,12 @@ mix test
 
 To create a new Heroku app, use:
 ```
-heroku apps:create --buildpack "https://github.com/sinetris/heroku-buildpack-elixir.git#export-heroku-vars"
+heroku apps:create --buildpack "https://github.com/sinetris/heroku-buildpack-elixir.git#hooks"
 ```
 
 To configure an existing Heroku app:
 ```
-heroku config:set BUILDPACK_URL="https://github.com/sinetris/heroku-buildpack-elixir.git#export-heroku-vars"
+heroku config:set BUILDPACK_URL="https://github.com/sinetris/heroku-buildpack-elixir.git#hooks"
 ```
 
 Set the `SESSION_SECRET`:
