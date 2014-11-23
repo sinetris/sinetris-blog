@@ -6,7 +6,7 @@ defmodule SinetrisBlog.SessionController do
   plug :action
 
   def new(conn, _params) do
-    render conn, "new.html"#, %{title: "Login"}
+    render conn, "new.html", %{title: "Login"}
   end
 
   def create(conn, params) do
