@@ -2,8 +2,8 @@ defmodule SinetrisBlog.Admin.PagesController do
   use SinetrisBlog.Helper.Application
   alias SinetrisBlog.Page
 
-  plug :action
   plug :authorize
+  plug :action
 
   def index(conn, _params) do
     pages = Page.all
