@@ -5,7 +5,7 @@
       <%= Enum.map(@errors, &format_error/1) %>
     </ul>
   <% end %>
-  <form role="form" action="<%= SinetrisBlog.Router.admin_pages_path %>" method="post">
+  <form role="form" action="<%= SinetrisBlog.Router.Helpers.admin_page_path(:create) %>" method="post">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%= @page.title %>">

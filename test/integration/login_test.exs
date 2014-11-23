@@ -14,7 +14,7 @@ defmodule SinetrisBlog.LoginTest do
   end
 
   test "can login with valid credential", ctx do
-    navigate_to(Router.login_url)
+    navigate_to(login_path(:new) |> url)
     assert page_title() == "Login"
     find_element(:name, "username")
     |> fill_field(ctx[:user_params][:username])

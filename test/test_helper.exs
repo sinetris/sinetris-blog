@@ -24,6 +24,7 @@ defmodule SinetrisBlogTest.Case do
   using do
     quote do
       import SinetrisBlogTest.Case
+      import SinetrisBlog.Router.Helpers
     end
   end
 end
