@@ -15,7 +15,8 @@ defmodule SinetrisBlog.Helper.Application do
           conn
         else
           conn
-          |> text(:unauthorized, "403 Unauthorized")
+          |> put_status(403)
+          |> text("403 Unauthorized")
           |> halt
         end
       end
@@ -34,7 +35,9 @@ defmodule SinetrisBlog.Helper.Application do
       end
 
       def not_found(conn) do
-        text conn, :not_found, "404 Not Found"
+        conn
+        |> put_status(404)
+        |> text "404 Not Found"
       end
     end
   end
