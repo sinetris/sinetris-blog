@@ -16,7 +16,7 @@ defmodule SinetrisBlog.SessionController do
       |> Conn.fetch_session
       |> Conn.put_session(:username, user.username)
       |> Flash.put(:notice, "Logged in as #{user.username}")
-      |> redirect "/"
+      |> redirect to: "/"
     else
       conn = Flash.put(conn, :warning, "Invalid credentials")
       messages = Flash.get(conn)
@@ -29,6 +29,6 @@ defmodule SinetrisBlog.SessionController do
     |> Conn.fetch_session
     |> Conn.delete_session(:username)
     |> Flash.put(:notice, "Logged out")
-    |> redirect "/"
+    |> redirect to: "/"
   end
 end
