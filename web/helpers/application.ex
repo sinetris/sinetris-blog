@@ -39,6 +39,16 @@ defmodule SinetrisBlog.Helper.Application do
         |> put_status(404)
         |> text "404 Not Found"
       end
+
+      def sanitize_params(model, params) do
+        # __MODULE__.__schema__(:associations)
+        valid_fields = List.delete(model.__schema__(:field_names), model.__schema__(:primary_key))
+        |> Enum.map(&to_string/1)
+        params
+        |> Enum.filter(fn {k, _v} -> Enum.find(valid_fields, &(&1 == k)) end)
+        |> Enum.map(fn {k, v} -> {String.to_atom(k), v} end)
+        |> Enum.into(%{})
+      end
     end
   end
 end

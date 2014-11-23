@@ -70,15 +70,4 @@ defmodule SinetrisBlog.Admin.PagesController do
       not_found conn
     end
   end
-
-  def sanitize_params(model, params) do
-    # __MODULE__.__schema__(:associations)
-    valid_fields = List.delete(model.__schema__(:field_names), model.__schema__(:primary_key))
-    |> Enum.traverse(&to_string/1)
-    params
-    |> Enum.filter(fn {k, _v} -> Enum.find(valid_fields, &(&1 == k)) end)
-    |> Enum.traverse(fn {k, v} -> {String.to_atom(k), v} end)
-    |> Enum.into(%{})
-  end
-
 end
