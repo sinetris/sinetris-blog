@@ -74,12 +74,12 @@ mix test
 
 To create a new Heroku app, use:
 ```
-heroku apps:create --buildpack "https://github.com/sinetris/heroku-buildpack-elixir.git#hooks"
+heroku apps:create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
 ```
 
 To configure an existing Heroku app:
 ```
-heroku config:set BUILDPACK_URL="https://github.com/sinetris/heroku-buildpack-elixir.git#hooks"
+heroku config:set BUILDPACK_URL="https://github.com/HashNuke/heroku-buildpack-elixir.git"
 ```
 
 Set the `SESSION_SECRET`:
