@@ -5,3 +5,4 @@ erl_crash.dump
 /.bundle
 /.sass-cache
 /priv/static/css/styles.css
+/gems
