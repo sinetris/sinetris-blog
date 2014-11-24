@@ -34,12 +34,6 @@ defmodule SinetrisBlog.Helper.Application do
         assign(conn, :flash_messages, messages)
       end
 
-      def not_found(conn) do
-        conn
-        |> put_status(404)
-        |> text "404 Not Found"
-      end
-
       def sanitize_params(model, params) do
         # __MODULE__.__schema__(:associations)
         valid_fields = List.delete(model.__schema__(:field_names), model.__schema__(:primary_key))

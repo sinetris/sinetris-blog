@@ -13,8 +13,12 @@ defmodule SinetrisBlog.PagesController do
     if page do
       render conn, "show.html", %{page: page}
     else
-      not_found conn
+      put_status(conn, :not_found)
     end
+  end
+
+  def not_found(conn, _params) do
+    render conn, "not_found.html"
   end
 
   def error(conn, _params) do

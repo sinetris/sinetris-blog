@@ -15,7 +15,7 @@ defmodule SinetrisBlog.Admin.PagesController do
     if page do
       render conn, "show.html", %{page: page}
     else
-      not_found conn
+      put_status(conn, :not_found)
     end
   end
 
@@ -42,7 +42,7 @@ defmodule SinetrisBlog.Admin.PagesController do
     if page do
       render conn, "edit.html", %{page: page}
     else
-      not_found conn
+      put_status(conn, :not_found)
     end
   end
 
@@ -67,7 +67,7 @@ defmodule SinetrisBlog.Admin.PagesController do
       |> Flash.put(:notice, "Deleted #{page.title} page")
       |> redirect to: Router.Helpers.admin_page_path(:index)
     else
-      not_found conn
+      put_status(conn, :not_found)
     end
   end
 end

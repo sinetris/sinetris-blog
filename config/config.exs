@@ -13,7 +13,7 @@ config :phoenix, SinetrisBlog.Router,
   secret_key_base: "4dJpXNDtVODFUhSnrcoFoDo1GfDJuOX53FbK4cvyNVojcFrCKsi00L9hFttzaR9LE5HUGl70zdUWFMtOpAN7nA==",
   catch_errors: true,
   debug_errors: false,
-  error_controller: SinetrisBlog.PageController
+  error_controller: SinetrisBlog.PagesController
 
 # Session configuration
 config :phoenix, SinetrisBlog.Router,
