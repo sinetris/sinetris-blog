@@ -42,26 +42,27 @@
     </div>
 
     <!-- Begin page content -->
-    <div class="container">
-      <%= if @flash_messages do %>
-        <div class="flash-messages">
-          <%= if @flash_messages[:error] do %>
-            <p class="bg-danger">
-              <%= @flash_messages[:error] %>
-            </p>
-          <% end %>
-          <%= if @flash_messages[:warning] do %>
-            <p class="bg-warning">
-              <%= @flash_messages[:warning] %>
-            </p>
-          <% end %>
-          <%= if @flash_messages[:notice] do %>
-            <p class="bg-info">
-              <%= @flash_messages[:notice] %>
-            </p>
-          <% end %>
-        <div>
-      <% end %>
+    <%= if @flash_messages do %>
+      <div class="flash-messages">
+        <%= if @flash_messages[:error] do %>
+          <p class="bg-danger">
+            <%= @flash_messages[:error] %>
+          </p>
+        <% end %>
+        <%= if @flash_messages[:warning] do %>
+          <p class="bg-warning">
+            <%= @flash_messages[:warning] %>
+          </p>
+        <% end %>
+        <%= if @flash_messages[:notice] do %>
+          <p class="bg-info">
+            <%= @flash_messages[:notice] %>
+          </p>
+        <% end %>
+      <div>
+    <% end %>
+
+    <div class="container" id="main">
       <%= @inner %>
     </div>
 
