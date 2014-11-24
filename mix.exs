@@ -7,6 +7,7 @@ defmodule SinetrisBlog.Mixfile do
       elixir: "~> 1.0",
       elixirc_paths: ["lib", "web"],
       compilers: [:phoenix] ++ Mix.compilers,
+      aliases: aliases,
       deps: deps(Mix.env) ]
   end
 
@@ -65,4 +66,13 @@ defmodule SinetrisBlog.Mixfile do
   end
 
   defp deps(_), do: deps
+
+  defp aliases do
+    [compile: ["compile", &compile_css/1]]
+  end
+
+  defp compile_css(_) do
+    script_file = Path.join(__DIR__, "deploy/post_app")
+    Mix.shell.cmd(script_file)
+  end
 end
