@@ -1,4 +1,5 @@
 require 'bootstrap-sass'
+require 'font-awesome-sass'
 # Require any additional compass plugins here.
 
 
@@ -8,6 +9,7 @@ css_dir = "priv/static/css/"
 sass_dir = "sass"
 images_dir = "priv/static/images/"
 javascripts_dir = "priv/static/js/"
+fonts_dir = "priv/static/fonts"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
