@@ -6,4 +6,4 @@ mkdir -p $GEM_HOME || exit 1
 LANG="en_US.UTF-8" gem install --no-rdoc --no-ri bundler || exit 1
 export PATH="$PATH:$GEM_PATH/bin"
 bundle install || exit 1
-bundle exec compass compile || exit 1
+bundle exec compass compile -e production --force || exit 1
