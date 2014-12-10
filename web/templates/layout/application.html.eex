@@ -22,7 +22,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Sinetris Blog</a>
+          <a class="navbar-brand" href="/">Sinetris</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -42,7 +42,7 @@
     </div>
 
     <!-- Begin page content -->
-    <%= if @flash_messages do %>
+    <%= if @flash_messages && Enum.count(@flash_messages) > 0 do %>
       <div class="flash-messages">
         <%= if @flash_messages[:error] do %>
           <p class="bg-danger">
