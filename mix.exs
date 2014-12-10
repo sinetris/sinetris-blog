@@ -61,7 +61,7 @@ defmodule SinetrisBlog.Mixfile do
       {:ibrowse, github: "cmullaparthi/ibrowse", tag: "v4.1.1", optional: true},
       {:hound, "~> 0.5.8"},
       {:jsex,    "~> 2.0"},
-      {:factory_girl_elixir, "~> 0.1.0"}
+      {:factory_girl_elixir, "~> 0.1.1"}
     ]
   end
 

@@ -3,7 +3,7 @@
   "cowlib": {:hex, :cowlib, "1.0.0"},
   "decimal": {:hex, :decimal, "0.2.5"},
   "ecto": {:hex, :ecto, "0.2.5"},
-  "factory_girl_elixir": {:hex, :factory_girl_elixir, "0.1.0"},
+  "factory_girl_elixir": {:hex, :factory_girl_elixir, "0.1.1"},
   "hound": {:hex, :hound, "0.5.8"},
   "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "d2e369ff42666c3574b8b7ec26f69027895c4d94", [tag: "v4.1.1"]},
   "inflex": {:hex, :inflex, "0.2.4"},
