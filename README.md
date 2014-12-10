@@ -82,6 +82,11 @@ To configure an existing Heroku app:
 heroku config:set BUILDPACK_URL="https://github.com/HashNuke/heroku-buildpack-elixir.git"
 ```
 
+Set the `MIX_ENV` to prod:
+```
+heroku config:set MIX_ENV=prod
+```
+
 Set the `SESSION_SECRET`:
 ```
 heroku config:set SESSION_SECRET="must be at least 64 characters long"

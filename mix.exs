@@ -71,7 +71,7 @@ defmodule SinetrisBlog.Mixfile do
     []
   end
 
-  defp aliases(:production) do
+  defp aliases(:prod) do
     aliases ++ [compile: ["compile", &compile_css/1]]
   end
 

@@ -13,8 +13,7 @@ use Mix.Config
 
 config :phoenix, SinetrisBlog.Router,
   url: [host: System.get_env("HOST")],
-  http: [port: System.get_env("PORT"),
-        proxy_port: System.get_env("PROXY_PORT") || 80],
+  http: [port: System.get_env("PORT")],
   secret_key_base: System.get_env("SESSION_SECRET")
 
 config :logger, :console,
