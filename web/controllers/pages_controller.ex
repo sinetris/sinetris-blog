@@ -5,7 +5,11 @@ defmodule SinetrisBlog.PagesController do
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html", %{title: "Sinetris Blog"}
+    page = Page.get("home")
+    if !page do
+      page = %Page{body: "Create an 'home' Page"}
+    end
+    render conn, "show.html", %{title: "Sinetris Blog", page: page}
   end
 
   def show(conn, params) do

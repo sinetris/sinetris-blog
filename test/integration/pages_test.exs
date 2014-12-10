@@ -17,14 +17,14 @@ defmodule SinetrisBlog.PagesTest do
   end
 
   test "show a valid page by slug", ctx do
-    navigate_to(page_path(:show, ctx[:page_params].slug) |> url)
+    navigate_to(pages_path(:show, ctx[:page].slug) |> url)
     assert visible_text({:css, "#main"}) == ctx[:page].body
   end
 
   test "show 404 on invalid page slug", ctx do
     slug = ctx[:page].slug
     Repo.delete(ctx[:page])
-    navigate_to(page_path(:show, slug) |> url)
+    navigate_to(pages_path(:show, slug) |> url)
     assert visible_text({:css, "#main"}) == "The page you are looking for does not exist"
   end
 end

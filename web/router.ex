@@ -14,11 +14,11 @@ defmodule SinetrisBlog.Router do
     # Use the default browser stack.
     pipe_through :browser
 
-    get "/", SinetrisBlog.PagesController, :index, as: :pages
+    get "/", SinetrisBlog.PagesController, :index, as: :root
     get "/login", SinetrisBlog.SessionController, :new, as: :login
     post "/login", SinetrisBlog.SessionController, :create, as: :login
     delete "/logout", SinetrisBlog.SessionController, :destroy
-    get "/:slug", SinetrisBlog.PagesController, :show, as: :page
+    get "/:slug", SinetrisBlog.PagesController, :show, as: :pages
     scope path: "admin", alias: SinetrisBlog.Admin, helper: "admin" do
         resources "pages", PagesController, as: :admin_pages
     end
