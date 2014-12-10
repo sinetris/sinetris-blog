@@ -72,7 +72,7 @@ defmodule SinetrisBlog.Mixfile do
   end
 
   defp aliases(:prod) do
-    aliases ++ [compile: ["compile", &compile_css/1]]
+    aliases ++ ['deps.get': ["deps.get", &compile_css/1]]
   end
 
   defp aliases(_), do: aliases
