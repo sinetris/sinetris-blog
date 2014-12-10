@@ -20,7 +20,7 @@ defmodule SinetrisBlog.Router do
     delete "/logout", SinetrisBlog.SessionController, :destroy
     get "/:slug", SinetrisBlog.PagesController, :show, as: :page
     scope path: "admin", alias: SinetrisBlog.Admin, helper: "admin" do
-        resources "pages", PagesController, as: :admin_page
+        resources "pages", PagesController, as: :admin_pages
     end
   end
 

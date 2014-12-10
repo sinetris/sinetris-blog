@@ -31,7 +31,7 @@ defmodule SinetrisBlog.Admin.PagesController do
       { :ok, page } ->
         conn
         |> Flash.put(:notice, "Created #{page.title} page")
-        |> redirect to: Router.Helpers.admin_page_path(:show, page.slug)
+        |> redirect to: Router.Helpers.admin_pages_path(:show, page.slug)
       { :error, errors } ->
         render conn, "new.html", %{page: sanitized_params, errors: errors}
     end
@@ -54,7 +54,7 @@ defmodule SinetrisBlog.Admin.PagesController do
       { :ok, page } ->
         conn
         |> Flash.put(:notice, "Updated #{page.title} page")
-        |> redirect to: Router.Helpers.admin_page_path(:show, page.slug)
+        |> redirect to: Router.Helpers.admin_pages_path(:show, page.slug)
       { :error, errors } ->
         render conn, "edit.html", %{page: page, errors: errors}
     end
@@ -65,7 +65,7 @@ defmodule SinetrisBlog.Admin.PagesController do
       Repo.delete(page)
       conn
       |> Flash.put(:notice, "Deleted #{page.title} page")
-      |> redirect to: Router.Helpers.admin_page_path(:index)
+      |> redirect to: Router.Helpers.admin_pages_path(:index)
     else
       put_status(conn, :not_found)
     end

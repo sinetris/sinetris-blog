@@ -7,7 +7,7 @@
     </pre>
   </p>
   <p>
-    <a href="<%= SinetrisBlog.Router.Helpers.admin_page_path(:edit, @page.slug) %>">
+    <a href="<%= SinetrisBlog.Router.Helpers.admin_pages_path(:edit, @page.slug) %>">
       <span class="glyphicon glyphicon-pencil"></span>
     </a>
   </p>

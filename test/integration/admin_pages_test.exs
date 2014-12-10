@@ -16,7 +16,7 @@ defmodule SinetrisBlog.AdminPagesTest do
 
   test "create valid page", ctx do
     login(ctx[:user_params])
-    navigate_to(admin_page_path(:new) |> url)
+    navigate_to(admin_pages_path(:new) |> url)
     assert visible_text({:tag, "h1"}) == "New Page"
     find_element(:name, "title")
     |> fill_field(ctx[:page_params][:title])
@@ -31,7 +31,7 @@ defmodule SinetrisBlog.AdminPagesTest do
 
   test "can't create a page with invalid data", ctx do
     login(ctx[:user_params])
-    navigate_to(admin_page_path(:new) |> url)
+    navigate_to(admin_pages_path(:new) |> url)
     find_element(:name, "submit")
     |> click
     assert visible_text({:tag, "h1"}) == "New Page"

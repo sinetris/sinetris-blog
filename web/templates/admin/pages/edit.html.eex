@@ -5,7 +5,7 @@
       <%= Enum.map(@errors, &format_error/1) %>
     </ul>
   <% end %>
-  <form role="form" action="<%= SinetrisBlog.Router.Helpers.admin_page_path(:show, @page.slug) %>" method="post">
+  <form role="form" action="<%= SinetrisBlog.Router.Helpers.admin_pages_path(:show, @page.slug) %>" method="post">
     <div style="margin:0;padding:0">
       <input name="_method" type="hidden" value="PATCH" />
     </div>
