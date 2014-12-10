@@ -13,32 +13,22 @@
 .flash-messages p {
   padding: 15px;
 }
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
-}
-
 
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
-
 body > .container {
   padding: 60px 15px 0;
+}
+
+#main {
 }
 .container .text-muted {
   margin: 20px 0;
@@ -51,4 +41,86 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+#weblinks {
+  font-size: 5em;
+  color: rgb(119, 117, 153);
+  margin-bottom: 0.5em
+}
+
+#bio {
+  font-size: 2em;
+  color: rgb(119, 117, 153);
+  margin-bottom: 0.1em;
+  img {
+    height: 240px;
+    width: 240px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-background-clip: padding-box;
+  }
+  p {
+    padding: 0px;
+    margin-top: 10px;
+  }
+  h1, h2 {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  background-color: #f5f5f5;
+}
+
+@media (min-width: $screen-sm-min) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+
+  .footer {
+    height: 60px;
+  }
+
+  #weblinks {
+    font-size: 8em;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+
+  .footer {
+    height: 60px;
+  }
+
+  #weblinks {
+    font-size: 8em;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+
+  .footer {
+    height: 60px;
+  }
+
+  #weblinks {
+    font-size: 9em;
+  }
 }
