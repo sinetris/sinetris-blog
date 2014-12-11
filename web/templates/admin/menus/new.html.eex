@@ -1,0 +1,15 @@
+<div>
+  <h1>New Menu</h1>
+  <%= if @errors do %>
+    <ul class="bg-warning">
+      <%= Enum.map(@errors, &format_error/1) %>
+    </ul>
+  <% end %>
+  <form role="form" action="<%= SinetrisBlog.Router.Helpers.admin_menus_path(:create) %>" method="post">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%= @menu.title %>">
+    </div>
+    <button type="submit" name="submit" class="btn btn-default">Create</button>
+  </form>
+</div>

@@ -1,0 +1,79 @@
+<div class="jumbotron">
+  <h1><%= @menu.title %></h1>
+  <p>
+    <a href="<%= admin_menus_path(:edit, @menu.id) %>">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+  </p>
+  <table id="menu_items" class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>URL</th>
+        <th>position</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for menu_item <- @menu.menu_items.all do %>
+        <tr>
+          <td><%= menu_item.id %></td>
+          <td><%= menu_item.title %></td>
+          <td><%= menu_item.url %></td>
+          <td><%= menu_item.position %></td>
+          <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
+          <td><a href="<%= admin_menus_menu_items_path(:destroy, @menu.id, menu_item.id) %>" data-method="DELETE" rel="nofollow"><span class="glyphicon glyphicon-remove"></span></a></td>
+        </tr>
+        <tr id="edit_menu_item_<%= menu_item.id %>">
+          <td colspan="6">
+            <form role="form" action="<%= admin_menus_menu_items_path(:update, @menu.id, menu_item.id) %>" method="post">
+              <div style="margin:0;padding:0">
+                <input name="_method" type="hidden" value="PATCH" />
+              </div>
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="<%= menu_item.title %>">
+              </div>
+              <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="Url" value="<%= menu_item.url %>">
+              </div>
+              <div class="form-group">
+                <label for="position">Position</label>
+                <input type="number" class="form-control" id="position" name="position" placeholder="Position" value="<%= menu_item.position %>">
+              </div>
+              <button type="submit" name="submit" class="btn btn-default">Update</button>
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div>
+    <h1>New Menu item</h1>
+    <%= if @errors do %>
+      <ul class="bg-warning">
+        <%= Enum.map(@errors, &format_error/1) %>
+      </ul>
+    <% end %>
+    <form role="form" action="<%= SinetrisBlog.Router.Helpers.admin_menus_menu_items_path(:create, @menu.id) %>" method="post">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Title" value="">
+      </div>
+      <div class="form-group">
+        <label for="url">URL</label>
+        <input type="text" class="form-control" id="url" name="url" placeholder="Url" value="">
+      </div>
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input type="number" class="form-control" id="position" name="position" placeholder="Position" value="">
+      </div>
+      <button type="submit" name="submit" class="btn btn-default">Create</button>
+    </form>
+  </div>
+
+</div>

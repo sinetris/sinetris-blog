@@ -42,27 +42,22 @@
     </div>
 
     <!-- Begin page content -->
-    <%= if @flash_messages && Enum.count(@flash_messages) > 0 do %>
-      <div class="flash-messages">
-        <%= if @flash_messages[:error] do %>
-          <p class="bg-danger">
-            <%= @flash_messages[:error] %>
-          </p>
-        <% end %>
-        <%= if @flash_messages[:warning] do %>
-          <p class="bg-warning">
-            <%= @flash_messages[:warning] %>
-          </p>
-        <% end %>
-        <%= if @flash_messages[:notice] do %>
-          <p class="bg-info">
-            <%= @flash_messages[:notice] %>
-          </p>
-        <% end %>
-      <div>
-    <% end %>
-
     <div class="container" id="main">
+          <%= for notice <- Flash.get_all(@conn, :notice) do %>
+            <div class="flash-messages">
+              <p class="bg-info">
+                <%= notice %>
+              </p>
+            </div>
+          <% end %>
+          <%= for error <- Flash.get_all(@conn, :error) do %>
+            <div class="flash-messages">
+              <ul class="bg-danger">
+                <%= format_error(error) %>
+              </ul>
+            </div>
+          <% end %>
+
       <%= @inner %>
     </div>
 

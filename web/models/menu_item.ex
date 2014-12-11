@@ -23,7 +23,7 @@ defmodule SinetrisBlog.MenuItem do
   def create(menu, params) do
     title    = params[:title]
     url      = params[:url]
-    position = params[:position]
+    position = params_to_integer(params[:position])
     now      = Ecto.DateTime.utc
     menu_item = struct(menu.menu_items, title: title, url: url,
                       position: position, created_at: now, updated_at: now)
@@ -39,7 +39,8 @@ defmodule SinetrisBlog.MenuItem do
     errors = []
     title = params[:title] || menu_item.title
     url = params[:url] || menu_item.url
-    position = params[:position] || menu_item.position
+    position = params[:position] && String.to_integer(params[:position])
+    position = position || menu_item.position
     menu_item = %{menu_item | title: title, url: url, position: position}
     errors = errors ++ validate_all(menu_item)
     case errors do
@@ -53,10 +54,15 @@ defmodule SinetrisBlog.MenuItem do
   end
 
   def get(nil), do: nil
-  def get(id) do
+
+  def get(id) when is_binary(id) do
+    String.to_integer(id) |> get
+  end
+
+  def get(id) when is_number(id) do
     from(m in SinetrisBlog.MenuItem,
          where: m.id == ^id,
-         limit: 1, preload: [:menu])
+         limit: 1)
     |> Repo.all
     |> List.first
   end
@@ -66,5 +72,14 @@ defmodule SinetrisBlog.MenuItem do
         where: u.menu_id == ^menu_id,
         order_by: [asc: u.position])
     |> Repo.all
+  end
+
+  defp params_to_integer(param) do
+    case param do
+      "" -> nil
+      p when is_binary(p) -> String.to_integer(p)
+      p when is_integer(p) -> p
+      _ -> nil
+    end
   end
 end

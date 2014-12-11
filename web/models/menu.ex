@@ -47,10 +47,15 @@ defmodule SinetrisBlog.Menu do
   end
 
   def get(nil), do: nil
+
+  def get(id) when is_binary(id) do
+    String.to_integer(id) |> get
+  end
+
   def get(id) do
     from(m in SinetrisBlog.Menu,
          where: m.id == ^id,
-         limit: 1, preload: [:author])
+         limit: 1, preload: [:author, :menu_items])
     |> Repo.all
     |> List.first
   end

@@ -21,6 +21,9 @@ defmodule SinetrisBlog.Router do
     get "/:slug", SinetrisBlog.PagesController, :show, as: :pages
     scope path: "admin", alias: SinetrisBlog.Admin, helper: "admin" do
         resources "pages", PagesController, as: :admin_pages
+        resources "menus", MenusController, as: :admin_menus do
+          resources "items", MenuItemsController, only: [:create, :update, :destroy]
+        end
     end
   end
 

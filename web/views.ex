@@ -18,6 +18,12 @@ defmodule SinetrisBlog.View do
   end
 
   # Functions defined here are available to all other views/templates
+  def format_error(error) when is_binary(error) do
+    {:safe, "<li>#{error}</li>"}
+  end
+  def format_error(errors) when is_map(errors) do
+    Enum.map(errors, &format_error/1)
+  end
   def format_error({k, v}) do
     {:safe, "<li>#{k} #{v}</li>"}
   end
