@@ -28,9 +28,6 @@ defmodule SinetrisBlog.Page do
   validatep validate_body(page),
     body: present()
 
-  def build(author, params) do
-
-  end
   def create(author, params) do
     slug     = params[:slug]
     title    = params[:title]
