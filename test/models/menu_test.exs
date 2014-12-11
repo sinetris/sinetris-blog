@@ -35,14 +35,14 @@ defmodule SinetrisBlog.MenuTest do
     assert {:error, %{menu: "can't be blank"}} = MenuItem.create(nil, item_params)
   end
 
-  test "get a menu and items by menu id", ctx do
+  test "get a menu and items by menu title", ctx do
     { :ok, menu } = Menu.create(ctx[:user], ctx[:menu_params])
     item_params1 = Factory.attributes_for(:menu_item, title: "Second", position: 2)
     { :ok, %MenuItem{} } = MenuItem.create(menu, item_params1)
     item_params2 = Factory.attributes_for(:menu_item, title: "First", position: 1)
     { :ok, _item2 } = MenuItem.create(menu, item_params2)
-    menu1 = MenuItem.get_menu(menu.id)
-    assert 2 = length menu1
-    assert item_params2[:title] == hd(menu1).title
+    menu1 = Menu.get_by_title(menu.title)
+    assert 2 = length menu1.menu_items.all
+    assert item_params2[:title] == hd(menu1.menu_items.all).title
   end
 end

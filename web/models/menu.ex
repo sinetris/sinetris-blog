@@ -54,8 +54,20 @@ defmodule SinetrisBlog.Menu do
 
   def get(id) do
     from(m in SinetrisBlog.Menu,
+         left_join: mi in m.menu_items,
          where: m.id == ^id,
+         select: assoc(m, menu_items: mi),
          limit: 1, preload: [:author, :menu_items])
+    |> Repo.all
+    |> List.first
+  end
+
+  def get_by_title(title) when is_binary(title) do
+    from(m in SinetrisBlog.Menu,
+        left_join: mi in m.menu_items,
+        where: m.title == ^title,
+        select: assoc(m, menu_items: mi),
+        order_by: [asc: mi.position])
     |> Repo.all
     |> List.first
   end

@@ -27,4 +27,17 @@ defmodule SinetrisBlog.View do
   def format_error({k, v}) do
     {:safe, "<li>#{k} #{v}</li>"}
   end
+
+  def make_menu do
+    menu = SinetrisBlog.Menu.get_by_title("main")
+    menu_items = case menu do
+      %SinetrisBlog.Menu{} -> menu.menu_items.all
+      _ -> []
+    end
+    case menu_items do
+      [] -> ""
+      items ->
+        Enum.map(items, &({:safe, "<li><a href=\"#{&1.url}\">#{&1.title}</a></li>"}))
+    end
+  end
 end
