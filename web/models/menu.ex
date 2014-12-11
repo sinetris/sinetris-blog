@@ -4,6 +4,7 @@ defmodule SinetrisBlog.Menu do
 
   schema "menus" do
     belongs_to :author, SinetrisBlog.User
+    has_many :menu_items, SinetrisBlog.MenuItem, foreign_key: :menu_id
     field :title, :string
     field :created_at, :datetime
     field :updated_at, :datetime
