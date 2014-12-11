@@ -7,6 +7,7 @@ defmodule SinetrisBlog.User do
     field :email, :string
     field :password, :string
     has_many :pages, SinetrisBlog.Page, foreign_key: :author_id
+    has_many :menus, SinetrisBlog.Menu, foreign_key: :author_id
     field :created_at, :datetime
     field :updated_at, :datetime
   end
