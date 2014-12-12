@@ -30,8 +30,20 @@ ALTER USER postgres PASSWORD 'postgres';
 
 ### Install Dependencies
 
-1. Install dependencies with `mix deps.get`
-3. Start Phoenix router with `mix phoenix.start`
+* Install dependencies with `mix deps.get`
+* Create the database with `mix ecto.create Repo`
+* Run all migration with `mix ecto.migrate Repo`
+* Create a user:
+
+```
+~ $ iex -S mix
+...
+iex(1)> SinetrisBlog.User.create(%{username: "my-username", email: "my-email@example.com", password: "my-password"})
+
+```
+
+* And finally start Phoenix router with `mix phoenix.start`
+
 
 Now you can visit [http://localhost:4000](http://localhost:4000) from your browser.
 
